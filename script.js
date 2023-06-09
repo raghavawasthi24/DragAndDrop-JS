@@ -1,16 +1,19 @@
 const draggables = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
 
+// When Items start dragging
 draggables.forEach(draggable => {
   draggable.addEventListener('dragstart', () => {
     draggable.classList.add('dragging')
   })
 
+  // When dragging ends
   draggable.addEventListener('dragend', () => {
     draggable.classList.remove('dragging')
   })
 })
 
+// When Items are dragging
 containers.forEach(container => {
   container.addEventListener('dragover', e => {
     e.preventDefault()
@@ -23,6 +26,8 @@ containers.forEach(container => {
     }
   })
 })
+
+// when items are dragged to another container
 
 function getDragAfterElement(container, y) {
   const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
